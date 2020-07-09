@@ -3,4 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quantity_placeholder">x17</string>
+    <string name="shopping_item_placeholder">Shopping item #1</string>
+    <string name="quitAction">Quit</string>
+    <string name="delete_selected_items">delete selected items</string>
+    <string name="check_all_items">check all items</string>
+    <string name="add_button_text">Add</string>
+    <string name="cancel_button_text">Cancel</string>
 </resources>
