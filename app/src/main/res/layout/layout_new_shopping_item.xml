@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_new_item_screen"
+    android:paddingHorizontal="24dp">
 
     <ImageView
         android:id="@+id/newItemImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_shopping_cart_black_128dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/newItemTitle"
@@ -20,38 +23,37 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintTop_toBottomOf="@id/newItemImage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/newItemImage" />
 
-    <EditText
-        android:id="@+id/newItemQuantity"
+
+    <NumberPicker
+        android:id="@+id/newItemQuantityPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@id/newItemTitle"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addItemButton"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toEndOf="@id/newItemTitle"
+        app:layout_constraintTop_toBottomOf="@id/newItemImage" />
 
     <Button
         android:id="@+id/addItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_button_text"
-        app:layout_constraintTop_toBottomOf="@id/newItemQuantity"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/cancelButton"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancel_button_text"
-        app:layout_constraintTop_toBottomOf="@id/newItemQuantity"
+        app:layout_constraintEnd_toStartOf="@id/addItemButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/addItemButton"/>
+        app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

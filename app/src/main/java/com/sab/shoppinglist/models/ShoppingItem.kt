@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class ShoppingItem (
     @PrimaryKey(autoGenerate = true) var id: Int? = null,
-    @ColumnInfo(name = "item_title") var title: String,
+    @ColumnInfo(name = "item_title") var title: String? = null,
     @ColumnInfo(name = "image_url") var imageUrl: String? = null,
     @ColumnInfo(name = "item_quantity") var amount: Int = 1,
     @ColumnInfo(name = "status") var isBought: Boolean = false)

@@ -10,6 +10,6 @@
         <bitmap
             android:gravity="fill"
             android:mipMap="true"
-            android:src="@drawable/wolf_android_logo" />
+            android:src="@drawable/wolf_android_logo_shopping" />
     </item>
 </layer-list>

@@ -1,24 +1,26 @@
 package com.sab.shoppinglist
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.sab.shoppinglist.models.ShoppingItem
+
 
 @Dao
 interface ShoppingItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertItem(item: ShoppingItem)
+    fun insertItem(item: ShoppingItem)
 
     @Delete
-    suspend fun deleteItem(item: ShoppingItem)
+    fun deleteItem(item: ShoppingItem)
 
     @Update
-    suspend fun updateItem(item: ShoppingItem)
+    fun updateItem(item: ShoppingItem)
 
     @Query("SELECT * FROM ShoppingItem WHERE status =:status")
-    suspend fun getItemsByStatus(status: Boolean): List<ShoppingItem>
+    fun getItemsByStatus(status: Boolean): LiveData<List<ShoppingItem>>
 
     @Query("SELECT * FROM ShoppingItem")
-    suspend fun getAllItems(): List<ShoppingItem>
+    fun getAllItems(): LiveData<List<ShoppingItem>>
 
 
 }
