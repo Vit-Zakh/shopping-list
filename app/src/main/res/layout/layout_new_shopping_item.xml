@@ -9,12 +9,30 @@
 
     <ImageView
         android:id="@+id/newItemImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_shopping_cart_black_128dp"
+        android:layout_width="170dp"
+        android:layout_height="128dp"
+        android:src="@drawable/ic_baseline_photo_camera_128"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a photo"
+        app:layout_constraintBottom_toBottomOf="@id/newItemImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="24dp"/>
+
+    <Button
+        android:id="@+id/browseGalleryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browse gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newItemImage"/>
+
 
     <EditText
         android:id="@+id/newItemTitle"
@@ -25,7 +43,7 @@
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newItemImage" />
+        app:layout_constraintTop_toBottomOf="@id/browseGalleryButton" />
 
 
     <NumberPicker

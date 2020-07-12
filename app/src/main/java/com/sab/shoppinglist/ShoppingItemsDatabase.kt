@@ -6,8 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.sab.shoppinglist.models.ShoppingItem
+import com.sab.shoppinglist.models.TestData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
-@Database(entities = [ShoppingItem::class], version = 1)
+@Database(entities = arrayOf(ShoppingItem::class), version = 1, exportSchema = false)
 abstract class ShoppingItemsDatabase : RoomDatabase() {
 
     abstract fun shoppingItemDao(): ShoppingItemDao
@@ -25,6 +29,16 @@ abstract class ShoppingItemsDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): ShoppingItemsDatabase {
             return Room.databaseBuilder(context, ShoppingItemsDatabase::class.java, DB_NAME)
+                .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        CoroutineScope(IO).launch {
+                            val database = getInstance(context)
+                            database.shoppingItemDao().insertAll(TestData.createTestItemsList())
+                        }
+
+                    }
+                })
                 .build()
         }
     }

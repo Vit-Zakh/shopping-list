@@ -11,7 +11,9 @@ data class ShoppingItem (
     @ColumnInfo(name = "item_title") var title: String? = null,
     @ColumnInfo(name = "image_url") var imageUrl: String? = null,
     @ColumnInfo(name = "item_quantity") var amount: Int = 1,
-    @ColumnInfo(name = "status") var isBought: Boolean = false)
+    @ColumnInfo(name = "status") var isBought: Boolean = false,
+    @Ignore var isChecked:Boolean = false)
+
 {
 
 }

@@ -10,9 +10,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shoppingRecyclerList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         tools:listitem="@layout/layout_shopping_item"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/markAsBoughtButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,5 +28,13 @@
         android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_add_48dp"
         />
+    <Button
+        android:id="@+id/markAsBoughtButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mark items as bought"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
