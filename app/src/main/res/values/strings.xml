@@ -10,4 +10,5 @@
     <string name="check_all_items">check all items</string>
     <string name="add_button_text">Add</string>
     <string name="cancel_button_text">Cancel</string>
+    <string name="item_title">Item title</string>
 </resources>

@@ -20,8 +20,6 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
 
     private var shoppingList: List<ShoppingItem> = ArrayList()
 
-
-
     class ItemHolder constructor(val shoppingItemBinding: LayoutShoppingItemBinding) :
         RecyclerView.ViewHolder(shoppingItemBinding.root) {
 
@@ -30,18 +28,12 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
             this.itemQuantity.text = "x${item.amount}"
             Glide.with(context).load(item.imageUrl)
                 .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop().into(this.itemImage)
-//            this.checkBox.isChecked = item.isBought
-//            this.checkBox.setOnCheckedChangeListener { _, _ ->
-//                item.isBought = this.checkBox.isChecked
-//                Log.d("CheckTag", "bind: ${item.title} is ${item.isBought}" )
-//            }
             this.checkBox.isChecked = item.isChecked
             this.checkBox.setOnCheckedChangeListener { _, _ ->
                 item.isChecked = this.checkBox.isChecked
                 Log.d("CheckTag", "bind: ${item.title} is ${item.isChecked}" )
             }
         }
-
 
     }
 
@@ -72,6 +64,6 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
             return true
         return false
     }
-//    fun List<ShoppingItem>.anyChecked() = any { it.isBought }
+
     fun List<ShoppingItem>.anyChecked() = any { it.isChecked}
 }

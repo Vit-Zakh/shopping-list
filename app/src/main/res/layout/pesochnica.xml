@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:foregroundGravity="center"
-    android:background="@drawable/background_new_item_screen">
+    android:background="@color/cardview_dark_background">
 
     <ImageView
         android:id="@+id/takePhotoImage"
@@ -23,6 +23,7 @@
         android:id="@+id/newItemImage"
         android:layout_width="170dp"
         android:layout_height="128dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,16 +50,14 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/newItemQuantityPicker"
-        app:layout_constraintBottom_toBottomOf="@id/newItemQuantityPicker"/>
+        app:layout_constraintTop_toBottomOf="@id/browseGalleryButton" />
 
     <NumberPicker
         android:id="@+id/newItemQuantityPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/cancelButton"
         app:layout_constraintStart_toEndOf="@id/cancelButton"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@id/browseGalleryButton" />
 
 
     <Button
@@ -68,15 +67,15 @@
         android:text="Browse gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/newItemTitle"
         app:layout_constraintTop_toBottomOf="@id/newItemImage" />
 
     <Button
         android:id="@+id/addItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:text="@string/add_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/newItemTitle"
         app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
 
@@ -84,8 +83,9 @@
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:text="@string/cancel_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/newItemTitle"
         app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
 

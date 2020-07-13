@@ -77,7 +77,8 @@ class ShoppingListFragment : Fragment() {
         listBinding.addItemFloatingButton.setOnClickListener { showAddItemDialog() }
 
         listBinding.markAsBoughtButton.setOnClickListener {
-            viewModel.allItems.value?.forEach { if(it.isChecked) it.isBought= true
+            viewModel.allItems.value?.forEach { if(it.isChecked) {it.isBought= true
+            it.boughtAgo = System.currentTimeMillis()}
                 viewModel.updateItem(it)}
         }
 
@@ -99,7 +100,7 @@ class ShoppingListFragment : Fragment() {
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
-            R.id.deleteAction -> viewModel.allItems.value?.forEach { if(it.isChecked) viewModel.deleteItem(it)
+            R.id.deleteAction -> viewModel.allItems.value?.forEach { if(it.isChecked && !it.isBought) viewModel.deleteItem(it)
             shoppingListAdapter.notifyDataSetChanged()}
             R.id.checkAllAction ->
                 when(viewModel.allItems.value?.anyUnchecked()){
@@ -122,6 +123,7 @@ class ShoppingListFragment : Fragment() {
 
         val addItemDialog = MaterialDialog(requireContext())
             .noAutoDismiss()
+            .cornerRadius(30f)
             .customView(R.layout.layout_new_shopping_item, newShoppingItemBinding.root)
 
         newShoppingItemBinding.cancelButton.setOnClickListener { addItemDialog.dismiss() }
@@ -142,9 +144,9 @@ class ShoppingListFragment : Fragment() {
                 title = newShoppingItemBinding.newItemTitle.text.toString(),
                 amount = newShoppingItemBinding.newItemQuantityPicker.value,
                 imageUrl = imageUri2
+//                boughtAgo = System.currentTimeMillis()
 
             )
-
             viewModel.addItem(shoppingItem)
             imageUri2 = "R.drawable.ic_shopping_cart_black_128dp"
         }
@@ -161,8 +163,6 @@ class ShoppingListFragment : Fragment() {
     }
 
     private fun getImageFromCamera(){
-
-
 
         @Throws(IOException::class)
         fun createImageFile(): File {
@@ -201,15 +201,6 @@ class ShoppingListFragment : Fragment() {
         }
 
 
-//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-//            takePictureIntent.also {
-//                startActivityForResult(takePictureIntent, CAMERA_INTENT_CODE)
-//            }
-//        }
-
-
-
-
     private fun getImageFromGallery(){
         val intent = Intent("android.intent.action.GET_CONTENT")
         intent.type = "image/*"
@@ -217,28 +208,6 @@ class ShoppingListFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        when(requestCode){
-//            GALLERY_INTENT_CODE ->
-//                if (resultCode == Activity.RESULT_OK
-//                    && data != null){
-//                    val imageUri = data.data
-//                    imageUri2 = imageUri.toString()
-//                    Glide.with(requireView()).load(imageUri).centerCrop().into(newShoppingItemBinding.newItemImage)
-//
-//                }
-//            CAMERA_INTENT_CODE ->
-//                if  (resultCode == Activity.RESULT_OK
-//                    && data != null){
-//                    Log.d("PhotoUriTAG", "onActivityResult: ${data.hasExtra("data")}")
-//                    val imageBitmap = data.extras?.get("data") as Bitmap
-//                    newShoppingItemBinding.newItemImage.setImageBitmap(imageBitmap)
-//
-////                    Glide.with(requireView()).load(currentPhotoPath).into(newShoppingItemBinding.newItemImage)
-//
-//
-//                }
-//        }
 
             if (requestCode == CAMERA_INTENT_CODE && resultCode == RESULT_OK) {
                 Glide.with(requireView()).load(currentPhotoPath).into(newShoppingItemBinding.newItemImage)
