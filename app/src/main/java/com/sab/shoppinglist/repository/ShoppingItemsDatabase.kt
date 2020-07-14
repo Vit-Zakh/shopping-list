@@ -1,4 +1,4 @@
-package com.sab.shoppinglist
+package com.sab.shoppinglist.repository
 
 import android.content.Context
 import androidx.room.Database
@@ -23,17 +23,27 @@ abstract class ShoppingItemsDatabase : RoomDatabase() {
         private var INSTANCE: ShoppingItemsDatabase? = null
 
         fun getInstance(context: Context): ShoppingItemsDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+            INSTANCE
+                ?: synchronized(this) {
+                INSTANCE
+                    ?: buildDatabase(
+                        context
+                    )
+                        .also { INSTANCE = it }
             }
 
         private fun buildDatabase(context: Context): ShoppingItemsDatabase {
-            return Room.databaseBuilder(context, ShoppingItemsDatabase::class.java, DB_NAME)
+            return Room.databaseBuilder(context, ShoppingItemsDatabase::class.java,
+                DB_NAME
+            )
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
                         CoroutineScope(IO).launch {
-                            val database = getInstance(context)
+                            val database =
+                                getInstance(
+                                    context
+                                )
                             database.shoppingItemDao().insertAll(TestData.createTestItemsList())
                         }
 

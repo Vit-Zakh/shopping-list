@@ -2,92 +2,79 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
     android:layout_gravity="center"
     android:foregroundGravity="center"
     android:background="@drawable/background_new_item_screen">
-
-    <ImageView
-        android:id="@+id/takePhotoImage"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:elevation="5dp"
-        android:paddingTop="32dp"
-        android:src="@drawable/ic_baseline_photo_camera_128"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/newItemImage" />
 
     <ImageView
         android:id="@+id/newItemImage"
         android:layout_width="170dp"
         android:layout_height="128dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_image_256" />
+        app:srcCompat="@drawable/ic_baseline_photo_camera_128" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
+        android:paddingBottom="24dp"
         android:text="Take a photo"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@id/newItemImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <EditText
         android:id="@+id/newItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="11"
         android:hint="@string/item_title"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/newItemQuantityPicker"
-        app:layout_constraintBottom_toBottomOf="@id/newItemQuantityPicker"/>
+        app:layout_constraintEnd_toEndOf="@+id/browseGalleryButton"
+        app:layout_constraintTop_toBottomOf="@id/browseGalleryButton" />
 
     <NumberPicker
         android:id="@+id/newItemQuantityPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/cancelButton"
-        app:layout_constraintStart_toEndOf="@id/cancelButton"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
-
+        android:layout_width="40dp"
+        android:layout_height="96sp"
+        android:layout_marginTop="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/addItemButton"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintTop_toTopOf="@id/browseGalleryButton" />
 
     <Button
         android:id="@+id/browseGalleryButton"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
         android:text="Browse gallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/newItemTitle"
-        app:layout_constraintTop_toBottomOf="@id/newItemImage" />
+        app:layout_constraintEnd_toEndOf="@+id/newItemImage"
+        app:layout_constraintStart_toStartOf="@+id/newItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/newItemImage" />
 
     <Button
         android:id="@+id/addItemButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/add_button_text"
-        app:layout_constraintStart_toStartOf="@id/newItemTitle"
-        app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/cancel_button_text"
-        app:layout_constraintEnd_toEndOf="@id/newItemTitle"
-        app:layout_constraintTop_toBottomOf="@id/newItemTitle" />
+        android:src="@drawable/ic_close_24"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

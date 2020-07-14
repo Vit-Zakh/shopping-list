@@ -8,14 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sab.shoppinglist.HistoryListViewModel
+import com.sab.shoppinglist.viewmodels.HistoryListViewModel
 
 import com.sab.shoppinglist.R
-import com.sab.shoppinglist.ShoppingListViewModel
 import com.sab.shoppinglist.adapters.HistoryListAdapter
-import com.sab.shoppinglist.adapters.ShoppingListAdapter
 import com.sab.shoppinglist.databinding.FragmentShoppingHistoryBinding
-import com.sab.shoppinglist.databinding.FragmentShoppingListBinding
 import com.sab.shoppinglist.models.ShoppingItem
 
 /**

@@ -1,4 +1,4 @@
-package com.sab.shoppinglist
+package com.sab.shoppinglist.repository
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

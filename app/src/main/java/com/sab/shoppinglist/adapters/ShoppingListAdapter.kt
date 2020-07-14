@@ -1,19 +1,13 @@
 package com.sab.shoppinglist.adapters
 
-import android.app.Application
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sab.shoppinglist.R
-import com.sab.shoppinglist.ShoppingItemsDatabase
-import com.sab.shoppinglist.ShoppingItemsRepository
 import com.sab.shoppinglist.databinding.LayoutShoppingItemBinding
 import com.sab.shoppinglist.models.ShoppingItem
-import kotlinx.android.synthetic.main.fragment_shopping_list.view.*
 import kotlinx.android.synthetic.main.layout_shopping_item.view.*
 
 class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>() {
@@ -27,11 +21,12 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
             this.itemTitle.text = item.title
             this.itemQuantity.text = "x${item.amount}"
             Glide.with(context).load(item.imageUrl)
-                .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop().into(this.itemImage)
+                .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop()
+                .into(this.itemImage)
             this.checkBox.isChecked = item.isChecked
             this.checkBox.setOnCheckedChangeListener { _, _ ->
                 item.isChecked = this.checkBox.isChecked
-                Log.d("CheckTag", "bind: ${item.title} is ${item.isChecked}" )
+                Log.d("CheckTag", "bind: ${item.title} is ${item.isChecked}")
             }
         }
 
@@ -56,14 +51,4 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
         shoppingList = list
         notifyDataSetChanged()
     }
-
-
-    fun ShoppingListAdapter.updateAdapter(): Boolean {
-        notifyDataSetChanged()
-        if(shoppingList.anyChecked())
-            return true
-        return false
-    }
-
-    fun List<ShoppingItem>.anyChecked() = any { it.isChecked}
 }
