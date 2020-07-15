@@ -2,7 +2,6 @@
     <string name="app_name">Shopping List</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="quantity_placeholder">x17</string>
     <string name="shopping_item_placeholder">Shopping item #1</string>
     <string name="quitAction">Quit</string>
@@ -11,4 +10,9 @@
     <string name="add_button_text">Add</string>
     <string name="cancel_button_text">Cancel</string>
     <string name="item_title">Item title</string>
+    <string name="browse_gallery_button">Browse gallery</string>
+    <string name="history_list_is_empty_text">Your history list is empty</string>
+    <string name="clear_history">Clear History</string>
+    <string name="shopping_list_is_empty_text">Your shopping list is empty</string>
+    <string name="mark_as_bought_button">Mark as bought</string>
 </resources>

@@ -28,10 +28,9 @@ class HistoryListAdapter : RecyclerView.Adapter<HistoryListAdapter.ItemHolder>()
             this.itemQuantity.text = "x${item.amount}"
             this.wasBoughtTime.text = TimeAgo.using(item.boughtAgo)
             Glide.with(context).load(item.imageUrl)
-                .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop().into(this.itemImage)
+                .placeholder(R.drawable.ic_shopping_cart_black_128dp)
+                .centerCrop().into(this.itemImage)
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {

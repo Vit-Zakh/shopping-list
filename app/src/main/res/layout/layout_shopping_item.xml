@@ -38,7 +38,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:hint="@string/shopping_item_placeholder"
+
+            android:textStyle="bold"
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="24sp"
@@ -52,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_placeholder"
+            android:textColor="@color/colorPrimary"
             android:paddingRight="16dp"
             android:textSize="32sp"
             app:layout_constraintEnd_toStartOf="@id/checkBox"

@@ -22,7 +22,6 @@ class ShoppingListViewModel(application: Application) : AndroidViewModel(applica
         )
         allItems = repository.allItems
         boughtItems = repository.boughtItems
-
     }
 
     fun addItem(item: ShoppingItem) = viewModelScope.launch(IO) { repository.insert(item) }

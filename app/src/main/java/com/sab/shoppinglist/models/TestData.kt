@@ -25,8 +25,6 @@ class TestData {
             itemsList.add(
                 ShoppingItem(title = "Корм для кошки")
             )
-
-
             return itemsList
         }
     }

@@ -27,6 +27,4 @@ interface ShoppingItemDao {
 
     @Query("SELECT * FROM ShoppingItem")
     fun getAllItems(): LiveData<List<ShoppingItem>>
-
-
 }

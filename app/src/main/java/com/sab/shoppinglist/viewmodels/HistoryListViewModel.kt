@@ -20,12 +20,8 @@ class HistoryListViewModel (application: Application) : AndroidViewModel(applica
             shoppingItemDao
         )
         boughtItems = repository.boughtItems
-
     }
 
-    fun addItem(item: ShoppingItem) = viewModelScope.launch(Dispatchers.IO) { repository.insert(item) }
-
-    fun deleteItem(item: ShoppingItem) = viewModelScope.launch(Dispatchers.IO) { repository.delete(item) }
-
-    fun clearHistory(items: List<ShoppingItem>) = viewModelScope.launch(Dispatchers.IO) { repository.deleteBoughtItems(items) }
+    fun clearHistory(items: List<ShoppingItem>) =
+        viewModelScope.launch(Dispatchers.IO) { repository.deleteBoughtItems(items) }
 }

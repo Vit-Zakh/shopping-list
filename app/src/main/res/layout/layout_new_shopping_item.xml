@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
     android:layout_gravity="center"
-    android:foregroundGravity="center"
-    android:background="@drawable/background_new_item_screen">
+    android:layout_marginHorizontal="16dp"
+    android:background="@drawable/background_new_item_screen"
+    android:foregroundGravity="center">
 
     <ImageView
         android:id="@+id/newItemImage"
-        android:layout_width="170dp"
+        android:layout_width="192dp"
         android:layout_height="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,20 +23,22 @@
         android:layout_height="wrap_content"
         android:paddingBottom="24dp"
         android:text="Take a photo"
-        android:textColor="@color/colorAccent"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@id/newItemImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <EditText
         android:id="@+id/newItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="11"
+        android:ems="7"
         android:hint="@string/item_title"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/browseGalleryButton"
+        app:layout_constraintStart_toStartOf="@+id/browseGalleryButton"
         app:layout_constraintTop_toBottomOf="@id/browseGalleryButton" />
 
     <NumberPicker
@@ -45,36 +46,45 @@
         android:layout_width="40dp"
         android:layout_height="96sp"
         android:layout_marginTop="12sp"
+        android:layout_marginBottom="4dp"
+        android:solidColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/addItemButton"
-        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/browseGalleryButton"
         app:layout_constraintTop_toTopOf="@id/browseGalleryButton" />
 
     <Button
         android:id="@+id/browseGalleryButton"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
-        android:text="Browse gallery"
+        android:background="@drawable/shape_button"
+        android:text="@string/browse_gallery_button"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/newItemImage"
         app:layout_constraintStart_toStartOf="@+id/newItemImage"
         app:layout_constraintTop_toBottomOf="@+id/newItemImage" />
 
     <Button
         android:id="@+id/addItemButton"
-        android:layout_width="match_parent"
+        android:layout_width="192dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_button"
         android:text="@string/add_button_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/newItemImage"
+        app:layout_constraintStart_toStartOf="@+id/newItemImage" />
 
     <ImageButton
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_close_24"
         android:background="@android:color/transparent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        android:src="@drawable/ic_close_24"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

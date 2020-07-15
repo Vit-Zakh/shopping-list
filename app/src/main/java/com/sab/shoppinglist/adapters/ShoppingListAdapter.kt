@@ -20,16 +20,15 @@ class ShoppingListAdapter : RecyclerView.Adapter<ShoppingListAdapter.ItemHolder>
         fun bind(item: ShoppingItem) = with(shoppingItemBinding.root) {
             this.itemTitle.text = item.title
             this.itemQuantity.text = "x${item.amount}"
-            Glide.with(context).load(item.imageUrl)
-                .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop()
-                .into(this.itemImage)
             this.checkBox.isChecked = item.isChecked
             this.checkBox.setOnCheckedChangeListener { _, _ ->
                 item.isChecked = this.checkBox.isChecked
                 Log.d("CheckTag", "bind: ${item.title} is ${item.isChecked}")
             }
+            Glide.with(context).load(item.imageUrl)
+                .placeholder(R.drawable.ic_shopping_cart_black_128dp).centerCrop()
+                .into(this.itemImage)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {

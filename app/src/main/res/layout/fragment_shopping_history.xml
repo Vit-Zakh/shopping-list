@@ -7,6 +7,19 @@
     tools:context=".fragments.ShoppingHistoryFragment"
     android:background="@color/colorBackground">
 
+    <TextView
+        android:id="@+id/emptyHistoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@string/history_list_is_empty_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/historyRecyclerList"
         android:layout_width="match_parent"
@@ -27,7 +40,8 @@
         android:id="@+id/deleteBoughtItemsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Clear History"
+        android:text="@string/clear_history"
+        android:textStyle="bold"
         android:textColor="@color/colorAccent"
         android:background="@color/colorBackgroundDark"
         app:layout_constraintStart_toStartOf="parent"

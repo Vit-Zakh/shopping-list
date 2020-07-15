@@ -9,7 +9,6 @@ import kotlinx.coroutines.withContext
 class ShoppingItemsRepository (private val shoppingItemDao: ShoppingItemDao){
 
     val allItems: LiveData<List<ShoppingItem>> = shoppingItemDao.getAllItems()
-
     val boughtItems: LiveData<List<ShoppingItem>> = shoppingItemDao.getItemsByStatus(true)
 
     suspend fun insert(item: ShoppingItem){
@@ -26,6 +25,4 @@ class ShoppingItemsRepository (private val shoppingItemDao: ShoppingItemDao){
     suspend fun update(item: ShoppingItem){
         shoppingItemDao.updateItem(item)
     }
-
-
 }
