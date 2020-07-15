@@ -24,8 +24,8 @@ abstract class ShoppingItemsDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): ShoppingItemsDatabase =
             INSTANCE ?: synchronized(this) {
-                    INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
-                }
+                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+            }
 
         private fun buildDatabase(context: Context): ShoppingItemsDatabase {
             return Room.databaseBuilder(context, ShoppingItemsDatabase::class.java, DB_NAME)

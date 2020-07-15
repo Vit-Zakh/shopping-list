@@ -8,13 +8,13 @@ class TestData {
                 ShoppingItem(title = "Квас")
             )
             itemsList.add(
-                ShoppingItem(title = "Йогурт")
+                ShoppingItem(title = "Йогурт", amount = 3)
             )
             itemsList.add(
-                ShoppingItem(title = "Кукурузка")
+                ShoppingItem(title = "Кукурузка", amount = 6)
             )
             itemsList.add(
-                ShoppingItem(title = "Бананы")
+                ShoppingItem(title = "Бананы", amount = 6)
             )
             itemsList.add(
                 ShoppingItem(title = "Мыло")
